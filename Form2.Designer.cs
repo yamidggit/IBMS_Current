@@ -136,6 +136,7 @@ namespace IBMS_GUI
             this.label117 = new System.Windows.Forms.Label();
             this.labelBattID = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.toggleSwitchRecord = new DevExpress.XtraEditors.ToggleSwitch();
             this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitchDSG.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitchCHG.Properties)).BeginInit();
@@ -163,6 +164,7 @@ namespace IBMS_GUI
             this.xtraTabPage4.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitchRecord.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -179,7 +181,7 @@ namespace IBMS_GUI
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(187, 71);
+            this.comboBox1.Location = new System.Drawing.Point(187, 72);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(479, 39);
@@ -190,7 +192,7 @@ namespace IBMS_GUI
             this.button1.BackColor = System.Drawing.SystemColors.Control;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.button1.Location = new System.Drawing.Point(698, 60);
+            this.button1.Location = new System.Drawing.Point(699, 60);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(309, 74);
@@ -208,7 +210,7 @@ namespace IBMS_GUI
             this.button2.BackColor = System.Drawing.SystemColors.Control;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.button2.Location = new System.Drawing.Point(1027, 58);
+            this.button2.Location = new System.Drawing.Point(1027, 57);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(171, 76);
@@ -316,7 +318,7 @@ namespace IBMS_GUI
             // 
             this.labelBMSfault.AutoSize = true;
             this.labelBMSfault.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBMSfault.Location = new System.Drawing.Point(476, 11);
+            this.labelBMSfault.Location = new System.Drawing.Point(475, 12);
             this.labelBMSfault.Name = "labelBMSfault";
             this.labelBMSfault.Size = new System.Drawing.Size(129, 44);
             this.labelBMSfault.TabIndex = 22;
@@ -361,12 +363,12 @@ namespace IBMS_GUI
             this.checkEditOCD1_SC.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkEditOCD1_SC.Properties.Appearance.Options.UseFont = true;
             this.checkEditOCD1_SC.Properties.Caption = "OCD1/SC";
-            this.checkEditOCD1_SC.Size = new System.Drawing.Size(236, 50);
+            this.checkEditOCD1_SC.Size = new System.Drawing.Size(235, 50);
             this.checkEditOCD1_SC.TabIndex = 29;
             // 
             // checkEditUTB
             // 
-            this.checkEditUTB.Location = new System.Drawing.Point(484, 95);
+            this.checkEditUTB.Location = new System.Drawing.Point(485, 95);
             this.checkEditUTB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkEditUTB.Name = "checkEditUTB";
             this.checkEditUTB.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -377,7 +379,7 @@ namespace IBMS_GUI
             // 
             // checkEditOTF
             // 
-            this.checkEditOTF.Location = new System.Drawing.Point(484, 162);
+            this.checkEditOTF.Location = new System.Drawing.Point(485, 162);
             this.checkEditOTF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkEditOTF.Name = "checkEditOTF";
             this.checkEditOTF.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -388,7 +390,7 @@ namespace IBMS_GUI
             // 
             // checkEditOTB
             // 
-            this.checkEditOTB.Location = new System.Drawing.Point(282, 162);
+            this.checkEditOTB.Location = new System.Drawing.Point(283, 162);
             this.checkEditOTB.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkEditOTB.Name = "checkEditOTB";
             this.checkEditOTB.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -399,7 +401,7 @@ namespace IBMS_GUI
             // 
             // checkEditOV
             // 
-            this.checkEditOV.Location = new System.Drawing.Point(282, 95);
+            this.checkEditOV.Location = new System.Drawing.Point(283, 95);
             this.checkEditOV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkEditOV.Name = "checkEditOV";
             this.checkEditOV.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -421,13 +423,13 @@ namespace IBMS_GUI
             // 
             // checkEditOCD2
             // 
-            this.checkEditOCD2.Location = new System.Drawing.Point(138, 102);
+            this.checkEditOCD2.Location = new System.Drawing.Point(139, 103);
             this.checkEditOCD2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkEditOCD2.Name = "checkEditOCD2";
             this.checkEditOCD2.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkEditOCD2.Properties.Appearance.Options.UseFont = true;
             this.checkEditOCD2.Properties.Caption = "OCD2";
-            this.checkEditOCD2.Size = new System.Drawing.Size(183, 50);
+            this.checkEditOCD2.Size = new System.Drawing.Size(184, 50);
             this.checkEditOCD2.TabIndex = 28;
             // 
             // panel6
@@ -441,7 +443,7 @@ namespace IBMS_GUI
             this.panel6.Location = new System.Drawing.Point(1067, 918);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(704, 212);
+            this.panel6.Size = new System.Drawing.Size(703, 212);
             this.panel6.TabIndex = 19;
             // 
             // label28
@@ -485,7 +487,7 @@ namespace IBMS_GUI
             this.labelDataStatus.AutoSize = true;
             this.labelDataStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDataStatus.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.labelDataStatus.Location = new System.Drawing.Point(1292, 64);
+            this.labelDataStatus.Location = new System.Drawing.Point(1291, 64);
             this.labelDataStatus.Name = "labelDataStatus";
             this.labelDataStatus.Size = new System.Drawing.Size(265, 46);
             this.labelDataStatus.TabIndex = 21;
@@ -494,7 +496,7 @@ namespace IBMS_GUI
             // pictureBox1
             // 
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(1623, 51);
+            this.pictureBox1.Location = new System.Drawing.Point(1624, 50);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(139, 93);
@@ -523,7 +525,7 @@ namespace IBMS_GUI
             this.FVersion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.FVersion.AutoSize = true;
             this.FVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FVersion.Location = new System.Drawing.Point(1491, 1166);
+            this.FVersion.Location = new System.Drawing.Point(1491, 1174);
             this.FVersion.Name = "FVersion";
             this.FVersion.Size = new System.Drawing.Size(0, 44);
             this.FVersion.TabIndex = 43;
@@ -555,7 +557,7 @@ namespace IBMS_GUI
             this.tableLayoutPanel1.Controls.Add(this.label20, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(32, 85);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(28, 102);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
@@ -565,13 +567,13 @@ namespace IBMS_GUI
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(874, 492);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(889, 523);
             this.tableLayoutPanel1.TabIndex = 13;
             // 
             // labelCell4V
@@ -579,7 +581,7 @@ namespace IBMS_GUI
             this.labelCell4V.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelCell4V.AutoSize = true;
             this.labelCell4V.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCell4V.Location = new System.Drawing.Point(519, 425);
+            this.labelCell4V.Location = new System.Drawing.Point(530, 453);
             this.labelCell4V.Name = "labelCell4V";
             this.labelCell4V.Size = new System.Drawing.Size(126, 46);
             this.labelCell4V.TabIndex = 53;
@@ -590,7 +592,7 @@ namespace IBMS_GUI
             this.labelCell3V.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelCell3V.AutoSize = true;
             this.labelCell3V.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCell3V.Location = new System.Drawing.Point(519, 342);
+            this.labelCell3V.Location = new System.Drawing.Point(530, 364);
             this.labelCell3V.Name = "labelCell3V";
             this.labelCell3V.Size = new System.Drawing.Size(126, 46);
             this.labelCell3V.TabIndex = 52;
@@ -601,7 +603,7 @@ namespace IBMS_GUI
             this.labelCell2V.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelCell2V.AutoSize = true;
             this.labelCell2V.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCell2V.Location = new System.Drawing.Point(519, 261);
+            this.labelCell2V.Location = new System.Drawing.Point(530, 278);
             this.labelCell2V.Name = "labelCell2V";
             this.labelCell2V.Size = new System.Drawing.Size(126, 46);
             this.labelCell2V.TabIndex = 52;
@@ -612,7 +614,7 @@ namespace IBMS_GUI
             this.labelCell1V.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelCell1V.AutoSize = true;
             this.labelCell1V.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCell1V.Location = new System.Drawing.Point(519, 180);
+            this.labelCell1V.Location = new System.Drawing.Point(530, 192);
             this.labelCell1V.Name = "labelCell1V";
             this.labelCell1V.Size = new System.Drawing.Size(126, 46);
             this.labelCell1V.TabIndex = 51;
@@ -623,7 +625,7 @@ namespace IBMS_GUI
             this.labelBattV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelBattV.AutoSize = true;
             this.labelBattV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBattV.Location = new System.Drawing.Point(519, 99);
+            this.labelBattV.Location = new System.Drawing.Point(530, 106);
             this.labelBattV.Name = "labelBattV";
             this.labelBattV.Size = new System.Drawing.Size(126, 46);
             this.labelBattV.TabIndex = 51;
@@ -634,7 +636,7 @@ namespace IBMS_GUI
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(727, 18);
+            this.label5.Location = new System.Drawing.Point(741, 20);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(116, 46);
             this.label5.TabIndex = 14;
@@ -645,7 +647,7 @@ namespace IBMS_GUI
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(518, 18);
+            this.label4.Location = new System.Drawing.Point(529, 20);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(127, 46);
             this.label4.TabIndex = 13;
@@ -656,7 +658,7 @@ namespace IBMS_GUI
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(94, 100);
+            this.label7.Location = new System.Drawing.Point(98, 107);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(280, 44);
             this.label7.TabIndex = 16;
@@ -667,7 +669,7 @@ namespace IBMS_GUI
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(106, 181);
+            this.label8.Location = new System.Drawing.Point(110, 193);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(256, 44);
             this.label8.TabIndex = 17;
@@ -678,7 +680,7 @@ namespace IBMS_GUI
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(106, 262);
+            this.label9.Location = new System.Drawing.Point(110, 279);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(256, 44);
             this.label9.TabIndex = 18;
@@ -689,7 +691,7 @@ namespace IBMS_GUI
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(106, 343);
+            this.label10.Location = new System.Drawing.Point(110, 365);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(256, 44);
             this.label10.TabIndex = 19;
@@ -700,7 +702,7 @@ namespace IBMS_GUI
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(106, 426);
+            this.label11.Location = new System.Drawing.Point(110, 454);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(256, 44);
             this.label11.TabIndex = 20;
@@ -711,7 +713,7 @@ namespace IBMS_GUI
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(732, 100);
+            this.label15.Location = new System.Drawing.Point(746, 107);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(105, 44);
             this.label15.TabIndex = 24;
@@ -722,7 +724,7 @@ namespace IBMS_GUI
             this.label17.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(732, 181);
+            this.label17.Location = new System.Drawing.Point(746, 193);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(105, 44);
             this.label17.TabIndex = 26;
@@ -733,7 +735,7 @@ namespace IBMS_GUI
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(732, 262);
+            this.label18.Location = new System.Drawing.Point(746, 279);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(105, 44);
             this.label18.TabIndex = 27;
@@ -744,7 +746,7 @@ namespace IBMS_GUI
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(732, 343);
+            this.label19.Location = new System.Drawing.Point(746, 365);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(105, 44);
             this.label19.TabIndex = 28;
@@ -755,7 +757,7 @@ namespace IBMS_GUI
             this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(732, 426);
+            this.label20.Location = new System.Drawing.Point(746, 454);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(105, 44);
             this.label20.TabIndex = 29;
@@ -766,7 +768,7 @@ namespace IBMS_GUI
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(127, 18);
+            this.label3.Location = new System.Drawing.Point(131, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(214, 46);
             this.label3.TabIndex = 0;
@@ -778,7 +780,7 @@ namespace IBMS_GUI
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label6.Location = new System.Drawing.Point(-1, 3);
+            this.label6.Location = new System.Drawing.Point(0, 2);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(196, 46);
             this.label6.TabIndex = 15;
@@ -794,11 +796,12 @@ namespace IBMS_GUI
             this.xtraTabControl1.AppearancePage.Header.Options.UseBorderColor = true;
             this.xtraTabControl1.AppearancePage.Header.Options.UseFont = true;
             this.xtraTabControl1.AppearancePage.Header.Options.UseForeColor = true;
-            this.xtraTabControl1.Location = new System.Drawing.Point(64, 441);
+            this.xtraTabControl1.Location = new System.Drawing.Point(64, 382);
             this.xtraTabControl1.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.xtraTabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(945, 689);
+            this.xtraTabControl1.Size = new System.Drawing.Size(944, 749);
             this.xtraTabControl1.TabIndex = 44;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1,
@@ -813,15 +816,17 @@ namespace IBMS_GUI
             this.xtraTabPage1.Appearance.HeaderDisabled.Options.UseBackColor = true;
             this.xtraTabPage1.Appearance.HeaderHotTracked.Options.UseBackColor = true;
             this.xtraTabPage1.Controls.Add(this.tableLayoutPanel1);
+            this.xtraTabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(941, 615);
+            this.xtraTabPage1.Size = new System.Drawing.Size(940, 675);
             this.xtraTabPage1.Text = "Voltage";
             // 
             // xtraTabPage2
             // 
             this.xtraTabPage2.Controls.Add(this.tableLayoutPanel2);
+            this.xtraTabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(941, 615);
+            this.xtraTabPage2.Size = new System.Drawing.Size(940, 675);
             this.xtraTabPage2.Text = "Temperature";
             // 
             // tableLayoutPanel2
@@ -845,7 +850,7 @@ namespace IBMS_GUI
             this.tableLayoutPanel2.Controls.Add(this.labelMCUT, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.label64, 0, 0);
             this.tableLayoutPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(28, 81);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(30, 102);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
@@ -853,14 +858,14 @@ namespace IBMS_GUI
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(880, 324);
             this.tableLayoutPanel2.TabIndex = 14;
             // 
@@ -999,8 +1004,9 @@ namespace IBMS_GUI
             // xtraTabPage3
             // 
             this.xtraTabPage3.Controls.Add(this.tableLayoutPanel3);
+            this.xtraTabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xtraTabPage3.Name = "xtraTabPage3";
-            this.xtraTabPage3.Size = new System.Drawing.Size(941, 615);
+            this.xtraTabPage3.Size = new System.Drawing.Size(940, 675);
             this.xtraTabPage3.Text = "Current";
             // 
             // tableLayoutPanel3
@@ -1021,23 +1027,23 @@ namespace IBMS_GUI
             this.tableLayoutPanel3.Controls.Add(this.labelCHGCurrent, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.labelDSGCurrent, 1, 2);
             this.tableLayoutPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(28, 85);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(29, 102);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(874, 248);
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(875, 248);
             this.tableLayoutPanel3.TabIndex = 15;
             // 
             // label75
@@ -1045,7 +1051,7 @@ namespace IBMS_GUI
             this.label75.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label75.AutoSize = true;
             this.label75.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label75.Location = new System.Drawing.Point(727, 18);
+            this.label75.Location = new System.Drawing.Point(728, 18);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(116, 46);
             this.label75.TabIndex = 14;
@@ -1056,7 +1062,7 @@ namespace IBMS_GUI
             this.label76.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label76.AutoSize = true;
             this.label76.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label76.Location = new System.Drawing.Point(518, 18);
+            this.label76.Location = new System.Drawing.Point(519, 18);
             this.label76.Name = "label76";
             this.label76.Size = new System.Drawing.Size(127, 46);
             this.label76.TabIndex = 13;
@@ -1067,7 +1073,7 @@ namespace IBMS_GUI
             this.label93.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label93.AutoSize = true;
             this.label93.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label93.Location = new System.Drawing.Point(726, 184);
+            this.label93.Location = new System.Drawing.Point(727, 184);
             this.label93.Name = "label93";
             this.label93.Size = new System.Drawing.Size(118, 44);
             this.label93.TabIndex = 33;
@@ -1078,7 +1084,7 @@ namespace IBMS_GUI
             this.label94.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label94.AutoSize = true;
             this.label94.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label94.Location = new System.Drawing.Point(93, 101);
+            this.label94.Location = new System.Drawing.Point(94, 101);
             this.label94.Name = "label94";
             this.label94.Size = new System.Drawing.Size(281, 44);
             this.label94.TabIndex = 23;
@@ -1089,7 +1095,7 @@ namespace IBMS_GUI
             this.label95.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label95.AutoSize = true;
             this.label95.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label95.Location = new System.Drawing.Point(726, 101);
+            this.label95.Location = new System.Drawing.Point(727, 101);
             this.label95.Name = "label95";
             this.label95.Size = new System.Drawing.Size(118, 44);
             this.label95.TabIndex = 32;
@@ -1122,7 +1128,7 @@ namespace IBMS_GUI
             this.labelCHGCurrent.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelCHGCurrent.AutoSize = true;
             this.labelCHGCurrent.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCHGCurrent.Location = new System.Drawing.Point(510, 101);
+            this.labelCHGCurrent.Location = new System.Drawing.Point(511, 101);
             this.labelCHGCurrent.Name = "labelCHGCurrent";
             this.labelCHGCurrent.Size = new System.Drawing.Size(143, 44);
             this.labelCHGCurrent.TabIndex = 54;
@@ -1133,7 +1139,7 @@ namespace IBMS_GUI
             this.labelDSGCurrent.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelDSGCurrent.AutoSize = true;
             this.labelDSGCurrent.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDSGCurrent.Location = new System.Drawing.Point(510, 184);
+            this.labelDSGCurrent.Location = new System.Drawing.Point(511, 184);
             this.labelDSGCurrent.Name = "labelDSGCurrent";
             this.labelDSGCurrent.Size = new System.Drawing.Size(143, 44);
             this.labelDSGCurrent.TabIndex = 46;
@@ -1142,8 +1148,9 @@ namespace IBMS_GUI
             // xtraTabPage4
             // 
             this.xtraTabPage4.Controls.Add(this.tableLayoutPanel4);
+            this.xtraTabPage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xtraTabPage4.Name = "xtraTabPage4";
-            this.xtraTabPage4.Size = new System.Drawing.Size(941, 615);
+            this.xtraTabPage4.Size = new System.Drawing.Size(940, 675);
             this.xtraTabPage4.Text = "Spare";
             // 
             // tableLayoutPanel4
@@ -1175,7 +1182,7 @@ namespace IBMS_GUI
             this.tableLayoutPanel4.Controls.Add(this.label115, 0, 6);
             this.tableLayoutPanel4.Controls.Add(this.label117, 0, 8);
             this.tableLayoutPanel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(35, 51);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(33, 102);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 9;
@@ -1188,10 +1195,10 @@ namespace IBMS_GUI
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(874, 542);
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(875, 541);
             this.tableLayoutPanel4.TabIndex = 16;
             // 
             // labelSpare1
@@ -1199,7 +1206,7 @@ namespace IBMS_GUI
             this.labelSpare1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelSpare1.AutoSize = true;
             this.labelSpare1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSpare1.Location = new System.Drawing.Point(508, 67);
+            this.labelSpare1.Location = new System.Drawing.Point(509, 67);
             this.labelSpare1.Name = "labelSpare1";
             this.labelSpare1.Size = new System.Drawing.Size(148, 46);
             this.labelSpare1.TabIndex = 54;
@@ -1210,7 +1217,7 @@ namespace IBMS_GUI
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(154, 67);
+            this.label13.Location = new System.Drawing.Point(155, 67);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(159, 46);
             this.label13.TabIndex = 53;
@@ -1221,7 +1228,7 @@ namespace IBMS_GUI
             this.labelSpare6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelSpare6.AutoSize = true;
             this.labelSpare6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSpare6.Location = new System.Drawing.Point(508, 367);
+            this.labelSpare6.Location = new System.Drawing.Point(509, 367);
             this.labelSpare6.Name = "labelSpare6";
             this.labelSpare6.Size = new System.Drawing.Size(148, 46);
             this.labelSpare6.TabIndex = 53;
@@ -1232,7 +1239,7 @@ namespace IBMS_GUI
             this.labelSpare5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelSpare5.AutoSize = true;
             this.labelSpare5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSpare5.Location = new System.Drawing.Point(508, 307);
+            this.labelSpare5.Location = new System.Drawing.Point(509, 307);
             this.labelSpare5.Name = "labelSpare5";
             this.labelSpare5.Size = new System.Drawing.Size(148, 46);
             this.labelSpare5.TabIndex = 52;
@@ -1243,7 +1250,7 @@ namespace IBMS_GUI
             this.labelSpare4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelSpare4.AutoSize = true;
             this.labelSpare4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSpare4.Location = new System.Drawing.Point(508, 247);
+            this.labelSpare4.Location = new System.Drawing.Point(509, 247);
             this.labelSpare4.Name = "labelSpare4";
             this.labelSpare4.Size = new System.Drawing.Size(148, 46);
             this.labelSpare4.TabIndex = 52;
@@ -1254,7 +1261,7 @@ namespace IBMS_GUI
             this.labelSpare3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelSpare3.AutoSize = true;
             this.labelSpare3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSpare3.Location = new System.Drawing.Point(508, 187);
+            this.labelSpare3.Location = new System.Drawing.Point(509, 187);
             this.labelSpare3.Name = "labelSpare3";
             this.labelSpare3.Size = new System.Drawing.Size(148, 46);
             this.labelSpare3.TabIndex = 51;
@@ -1265,7 +1272,7 @@ namespace IBMS_GUI
             this.label109.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label109.AutoSize = true;
             this.label109.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label109.Location = new System.Drawing.Point(727, 7);
+            this.label109.Location = new System.Drawing.Point(728, 7);
             this.label109.Name = "label109";
             this.label109.Size = new System.Drawing.Size(116, 46);
             this.label109.TabIndex = 14;
@@ -1276,7 +1283,7 @@ namespace IBMS_GUI
             this.label110.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label110.AutoSize = true;
             this.label110.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label110.Location = new System.Drawing.Point(518, 7);
+            this.label110.Location = new System.Drawing.Point(519, 7);
             this.label110.Name = "label110";
             this.label110.Size = new System.Drawing.Size(127, 46);
             this.label110.TabIndex = 13;
@@ -1342,7 +1349,7 @@ namespace IBMS_GUI
             this.labelSpare7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelSpare7.AutoSize = true;
             this.labelSpare7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSpare7.Location = new System.Drawing.Point(510, 428);
+            this.labelSpare7.Location = new System.Drawing.Point(511, 428);
             this.labelSpare7.Name = "labelSpare7";
             this.labelSpare7.Size = new System.Drawing.Size(143, 44);
             this.labelSpare7.TabIndex = 39;
@@ -1353,7 +1360,7 @@ namespace IBMS_GUI
             this.labelSpare8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelSpare8.AutoSize = true;
             this.labelSpare8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSpare8.Location = new System.Drawing.Point(510, 489);
+            this.labelSpare8.Location = new System.Drawing.Point(511, 488);
             this.labelSpare8.Name = "labelSpare8";
             this.labelSpare8.Size = new System.Drawing.Size(143, 44);
             this.labelSpare8.TabIndex = 40;
@@ -1373,7 +1380,7 @@ namespace IBMS_GUI
             // label135
             // 
             this.label135.AutoSize = true;
-            this.label135.Location = new System.Drawing.Point(700, 61);
+            this.label135.Location = new System.Drawing.Point(701, 61);
             this.label135.Name = "label135";
             this.label135.Size = new System.Drawing.Size(0, 44);
             this.label135.TabIndex = 44;
@@ -1383,7 +1390,7 @@ namespace IBMS_GUI
             this.labelSpare2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelSpare2.AutoSize = true;
             this.labelSpare2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSpare2.Location = new System.Drawing.Point(508, 127);
+            this.labelSpare2.Location = new System.Drawing.Point(509, 127);
             this.labelSpare2.Name = "labelSpare2";
             this.labelSpare2.Size = new System.Drawing.Size(148, 46);
             this.labelSpare2.TabIndex = 51;
@@ -1405,7 +1412,7 @@ namespace IBMS_GUI
             this.label117.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label117.AutoSize = true;
             this.label117.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label117.Location = new System.Drawing.Point(158, 489);
+            this.label117.Location = new System.Drawing.Point(158, 488);
             this.label117.Name = "label117";
             this.label117.Size = new System.Drawing.Size(152, 44);
             this.label117.TabIndex = 22;
@@ -1416,7 +1423,7 @@ namespace IBMS_GUI
             this.labelBattID.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelBattID.AutoSize = true;
             this.labelBattID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBattID.Location = new System.Drawing.Point(302, 3);
+            this.labelBattID.Location = new System.Drawing.Point(301, 2);
             this.labelBattID.Name = "labelBattID";
             this.labelBattID.Size = new System.Drawing.Size(126, 46);
             this.labelBattID.TabIndex = 50;
@@ -1429,23 +1436,33 @@ namespace IBMS_GUI
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.labelBattID);
             this.panel1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.panel1.Location = new System.Drawing.Point(66, 227);
+            this.panel1.Location = new System.Drawing.Point(67, 227);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 11, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(941, 61);
+            this.panel1.Size = new System.Drawing.Size(941, 62);
             this.panel1.TabIndex = 51;
+            // 
+            // toggleSwitchRecord
+            // 
+            this.toggleSwitchRecord.Location = new System.Drawing.Point(329, 1182);
+            this.toggleSwitchRecord.Name = "toggleSwitchRecord";
+            this.toggleSwitchRecord.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toggleSwitchRecord.Properties.Appearance.Options.UseFont = true;
+            this.toggleSwitchRecord.Properties.OffText = "OFF";
+            this.toggleSwitchRecord.Properties.OnText = "ON";
+            this.toggleSwitchRecord.Size = new System.Drawing.Size(288, 54);
+            this.toggleSwitchRecord.TabIndex = 52;
+            this.toggleSwitchRecord.Toggled += new System.EventHandler(this.ToggleSwitchRecord_Toggled);
             // 
             // label12
             // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label12.Location = new System.Drawing.Point(66, 361);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(56, 1181);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(314, 46);
-            this.label12.TabIndex = 52;
-            this.label12.Text = "NLX BMS DATA";
+            this.label12.Size = new System.Drawing.Size(232, 44);
+            this.label12.TabIndex = 53;
+            this.label12.Text = "Record Data";
             // 
             // Form2
             // 
@@ -1454,8 +1471,9 @@ namespace IBMS_GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ClientSize = new System.Drawing.Size(1867, 1266);
+            this.ClientSize = new System.Drawing.Size(1867, 1283);
             this.Controls.Add(this.label12);
+            this.Controls.Add(this.toggleSwitchRecord);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.xtraTabControl1);
             this.Controls.Add(this.FVersion);
@@ -1511,6 +1529,7 @@ namespace IBMS_GUI
             this.tableLayoutPanel4.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.toggleSwitchRecord.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1624,8 +1643,9 @@ namespace IBMS_GUI
         private System.Windows.Forms.Label labelSpare7;
         private System.Windows.Forms.Label labelSpare8;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label labelSpare1;
         private System.Windows.Forms.Label label13;
+        private DevExpress.XtraEditors.ToggleSwitch toggleSwitchRecord;
+        private System.Windows.Forms.Label label12;
     }
 }

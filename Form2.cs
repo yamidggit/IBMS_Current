@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Spreadsheet;     // this is for using the workbook class
+using DevExpress.XtraEditors;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,7 +13,7 @@ namespace IBMS_GUI
 
     public partial class Form2 : Form
     {
-
+        private Workbook _workbook;
         private readonly SynchronizationContext _context;
 
         // Battery data
@@ -68,14 +69,29 @@ namespace IBMS_GUI
         private int NextState = 1;
 
         private int DataLengthwithSpares = 52;
-        int seconds = 0;
+        private int seconds = 0;
+        private int DataCounter = -1;
+
+        private DateTime previousDateTime = DateTime.Now;
+        private DateTime currentDateTime = DateTime.Now;
+
 
 
         public Form2()
         {
             InitializeComponent();
             _context = SynchronizationContext.Current;
+            this.FormClosing += Form2_FormClosing;
 
+        }
+
+        private void Form2_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (XtraMessageBox.Show("Is Recording Data off? Please stop recording to save all data to excel", "NLX NOCO",
+                    MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -223,6 +239,8 @@ namespace IBMS_GUI
                 //checks for the header and terminator
                 if (data[headerIndex] == 0x55 && data[headerIndex + 1] == 0x55 && data[bufferLength - 1] == 0xff && data[bufferLength - 2] == 0xff)
                 {
+                    //DataCounter++;
+                    //private DateTime previousDateTime = DateTime.Now;
                     if (DataLengthwithSpares - bufferLength > 0)
                     {
                         for (int i = bufferLength - 2; i < DataLengthwithSpares; i++)
@@ -351,9 +369,95 @@ namespace IBMS_GUI
             Spare6 = ConvertBytesDataRxToInt(DataRX[47], DataRX[46]).ToString();
             Spare7 = ConvertBytesDataRxToInt(DataRX[49], DataRX[48]).ToString();
             Spare8 = ConvertBytesDataRxToInt(DataRX[51], DataRX[50]).ToString();
-            
+
+            if (_workbook != null)    
+                UpdateExcel();
+
         }
 
+
+        private void CreateExcel()
+        {
+            Worksheet ws;
+            if (_workbook == null)                      //if workbook is null create a new workbook and add the format 
+            {
+                _workbook = new Workbook();
+
+                ws = _workbook.Worksheets[0];           //access to the first worksheet 
+                ws.Name = "Battery Info";               //name of worksheet
+
+                //format of worksheet
+                ws.Columns["A"].Width = 450;
+                ws.Columns["B"].Width = 450;
+                ws.Columns["C"].Width = 450;
+                ws.Columns["D"].Width = 450;
+                ws.Columns["E"].Width = 450;
+                ws.Columns["F"].Width = 450;
+                ws.Columns["G"].Width = 450;
+                ws.Columns["H"].Width = 450;
+                ws.Columns["I"].Width = 450;
+                ws.Columns["J"].Width = 450;
+                ws.Columns["K"].Width = 450;
+                ws.Columns["L"].Width = 450;
+
+                
+                //name of columns 
+                ws["A1"].Value = "Date Received";
+                ws["B1"].Value = "Relative Time";
+                ws["C1"].Value = "Battery Voltage";
+                ws["D1"].Value = "Cell 1 Voltage";
+                ws["E1"].Value = "Cell 2 Voltage";
+                ws["F1"].Value = "Cell 3 Voltage";
+                ws["G1"].Value = "Cell 4 Voltage";
+                ws["H1"].Value = "Battery Temperature";
+                ws["I1"].Value = "FET Temperature";
+                ws["J1"].Value = "MCU Temperature";
+                ws["K1"].Value = "Charge Current";
+                ws["L1"].Value = "Discharge Current";
+
+            }
+        }
+
+        private void UpdateExcel()
+        {
+            DataCounter++;
+            Worksheet ws;
+            currentDateTime = DateTime.Now;
+            
+            // when you apply multiple modifications to a document enclose the code in the BeginUpdate - EndUpdate() to improve performance
+            _workbook.BeginUpdate();
+
+            // try…finally statement to ensure that EndUpdate() is always called even if an exception occurs.
+            try
+            {
+                ws = _workbook.Worksheets[0];
+                CellRange datarange = ws.GetDataRange();
+                int rowindex = datarange.RowCount + 1;
+
+                ws["A" + rowindex].Value = DateTime.Now;
+                ws["A" + rowindex].NumberFormat = "m/d/yyyy h:mm:ss";
+
+                // calculates the relative time by getting the difference in seconds between the current DateTime and the previous one, and multiply it by sample counter
+
+                ws["B" + rowindex].Value = (int)currentDateTime.Subtract(previousDateTime).TotalSeconds*DataCounter;
+                ws["C" + rowindex].Value = Convert.ToDouble(BattVolt);
+                ws["D" + rowindex].Value = Convert.ToDouble(Cell1Volt);
+                ws["E" + rowindex].Value = Convert.ToDouble(Cell2Volt);
+                ws["F" + rowindex].Value = Convert.ToDouble(Cell3Volt);
+                ws["G" + rowindex].Value = Convert.ToDouble(Cell4Volt);
+                ws["H" + rowindex].Value = Convert.ToDouble(BatteryTemp);
+                ws["I" + rowindex].Value = Convert.ToDouble(FETT);
+                ws["J" + rowindex].Value = Convert.ToDouble(MCUT);
+                ws["K" + rowindex].Value = Convert.ToDouble(ChgCurrent);
+                ws["L" + rowindex].Value = Convert.ToDouble(DsgCurrent);
+
+                previousDateTime = currentDateTime;
+            }
+            finally
+            {
+                _workbook.EndUpdate();
+            }
+        }
         private SendOrPostCallback UpdateBatteryStatus()
         {
             return status =>
@@ -388,6 +492,7 @@ namespace IBMS_GUI
                 DataRXLightIndicator();
             };
         }
+
         private void DataRXLightIndicator()
         {
             timer1.Start();
@@ -409,7 +514,6 @@ namespace IBMS_GUI
                 pictureBox1.Image = Image.FromFile("yellow.png");
                 this.labelDataStatus.ForeColor = Color.Black;
             }
-
 
         }
         private string GetBatteryID(string batteryID)
@@ -682,6 +786,8 @@ namespace IBMS_GUI
                 this.serialPort1.Close();
                 ClearForm();
             }
+
+            
         }
 
         private void BMSfault_TextChanged(object sender, EventArgs e)
@@ -708,9 +814,48 @@ namespace IBMS_GUI
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+       
+        private void ToggleSwitchRecord_Toggled(object sender, EventArgs e)
         {
 
+           if (toggleSwitchRecord.IsOn)
+           {
+               CreateExcel();
+               label12.Text = "Recording";
+           }
+           else
+           {
+                SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+                saveFileDialog1.Filter = "xlsx files (*.xlsx)|*.xlsx|All files (*.*)|*.*";
+                saveFileDialog1.FilterIndex = 2;
+                saveFileDialog1.RestoreDirectory = true;
+
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    if (_workbook != null)
+                        _workbook.SaveDocument(saveFileDialog1.FileName, DocumentFormat.Xlsx);
+                }
+                
+
+               label12.Text = "Record Data";
+           }
+          
+
+
+           /* if (toggleSwitchRecord.IsOn)
+           {
+               CreateExcel();
+               label12.Text = "Recording";
+           }
+           else
+           {
+               if (_workbook != null)
+                   _workbook.SaveDocument($"C:\\Logs\\BaterryInfo-{DateTime.Now.ToString("MMddyyyy-HHmm")}.xlsx", DocumentFormat.Xlsx);
+
+               label12.Text = "Record Data";
+           }
+          */
         }
     }
 
