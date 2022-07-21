@@ -734,7 +734,6 @@ namespace IBMS_GUI
             OCD_Flag = true;
 
             return OCD_Fault;
-
         }
 
         private void UpdateFaultStatus()
@@ -785,9 +784,7 @@ namespace IBMS_GUI
             {
                 this.serialPort1.Close();
                 ClearForm();
-            }
-
-            
+            }   
         }
 
         private void BMSfault_TextChanged(object sender, EventArgs e)
@@ -811,13 +808,10 @@ namespace IBMS_GUI
                 this.labelDataStatus.Text = DataStatus;
                 
             }
-
         }
-
        
         private void ToggleSwitchRecord_Toggled(object sender, EventArgs e)
         {
-
            if (toggleSwitchRecord.IsOn)
            {
                CreateExcel();
@@ -837,26 +831,8 @@ namespace IBMS_GUI
                         _workbook.SaveDocument(saveFileDialog1.FileName, DocumentFormat.Xlsx);
                 }
                 
-
                label12.Text = "Record Data";
            }
-          
-
-
-           /* if (toggleSwitchRecord.IsOn)
-           {
-               CreateExcel();
-               label12.Text = "Recording";
-           }
-           else
-           {
-               if (_workbook != null)
-                   _workbook.SaveDocument($"C:\\Logs\\BaterryInfo-{DateTime.Now.ToString("MMddyyyy-HHmm")}.xlsx", DocumentFormat.Xlsx);
-
-               label12.Text = "Record Data";
-           }
-          */
         }
     }
-
 }
