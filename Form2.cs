@@ -124,6 +124,9 @@ namespace IBMS_GUI
             this.labelSpare7.Text = String.Empty;
             this.labelSpare8.Text = String.Empty;
             this.labelDataStatus.Text = String.Empty;
+            this.labelBattV.Text = String.Empty;
+            this.labelFVersion.Text = String.Empty;
+            
 
             this.toggleSwitchDSG.IsOn = false;
             this.toggleSwitchCHG.IsOn = false;
@@ -187,7 +190,9 @@ namespace IBMS_GUI
             this.checkEditOCD1_SC.ForeColor = Color.Black;
         }
 
-        private async void button1_Click(object sender, EventArgs e)
+      
+
+        private async void buttonConnect_Click(object sender, EventArgs e)
         {
             try
             {
@@ -196,8 +201,9 @@ namespace IBMS_GUI
                     this.serialPort1.PortName = this.comboBox1.Text;
                     this.serialPort1.DataReceived += SerialPort1_DataReceived;
                     this.serialPort1.Open();
+                    this.buttonConnect.Text = "Connected";
                 }
-                
+
                 DataRXLightIndicator();
             }
             catch (Exception ex)
@@ -208,6 +214,27 @@ namespace IBMS_GUI
 
         }
 
+        private void buttonDebug_Click(object sender, EventArgs e)
+        {
+            this.serialPort1.Write("D");
+        }
+
+        private void buttonProduction_Click(object sender, EventArgs e)
+        {
+            this.serialPort1.Write("P");
+            ClearForm();
+        }
+
+        private void buttonDisconnect_Click(object sender, EventArgs e)
+        {
+            if (this.serialPort1.IsOpen)
+            {
+                this.serialPort1.Close();
+                ClearForm();
+                this.buttonConnect.Text = "Disconnected";
+            }
+        }
+        
         private void SerialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
          {
             var data = new List<int>();                                         // to use array need to know the lenght. For variable length use a list
@@ -474,7 +501,7 @@ namespace IBMS_GUI
                 this.labelFETT.Text = FETT;
                 this.labelMCUT.Text = MCUT;
                 this.labelBMSfault.Text = Fault;
-                this.FVersion.Text = "NLX NOCO V" + FirmwareVersion;
+                this.labelFVersion.Text = "NLX NOCO V" + FirmwareVersion;
                 this.labelSpare1.Text = Spare1;
                 this.labelSpare2.Text = Spare2;
                 this.labelSpare3.Text = Spare3;
@@ -778,15 +805,6 @@ namespace IBMS_GUI
             }
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            if (this.serialPort1.IsOpen)
-            {
-                this.serialPort1.Close();
-                ClearForm();
-            }   
-        }
-
         private void BMSfault_TextChanged(object sender, EventArgs e)
         {
             if (this.labelBMSfault.Text == "NONE")
@@ -834,5 +852,6 @@ namespace IBMS_GUI
                label12.Text = "Record Data";
            }
         }
+
     }
 }
