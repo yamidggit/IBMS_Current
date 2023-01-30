@@ -49,6 +49,10 @@ namespace IBMS_GUI
         private bool UV_Flag = false;
         private bool OCD_Flag = false;
 
+        //button flags status
+        private bool DebugButtonSetected = false;
+        private bool ProductionButtonSetected = true;
+        private bool CalibrationButtonSetected = false;
 
         // Over Voltage and Under Voltage threshold
         private float OV_Threshold = 3.9f;
@@ -82,6 +86,9 @@ namespace IBMS_GUI
             InitializeComponent();
             _context = SynchronizationContext.Current;
             this.FormClosing += Form2_FormClosing;
+            this.buttonCalibration.Enabled = false;
+            this.buttonDebug.Enabled = false;
+            this.buttonProduction.Enabled = false;
 
         }
 
@@ -202,6 +209,9 @@ namespace IBMS_GUI
                     this.serialPort1.DataReceived += SerialPort1_DataReceived;
                     this.serialPort1.Open();
                     this.buttonConnect.Text = "Connected";
+
+                    this.buttonDebug.Enabled = true;
+                    this.buttonProduction.Enabled = true;
                 }
 
                 DataRXLightIndicator();
@@ -217,85 +227,129 @@ namespace IBMS_GUI
         private void buttonDebug_Click(object sender, EventArgs e)
         {
             this.serialPort1.Write("D");
+            this.buttonCalibration.Enabled = true;
+            this.DebugButtonSetected = true;
+            this.ProductionButtonSetected = false;
+            this.CalibrationButtonSetected = false;
         }
 
         private void buttonProduction_Click(object sender, EventArgs e)
         {
             this.serialPort1.Write("P");
+            this.buttonCalibration.Enabled = false;
+            this.DebugButtonSetected = false;
+            this.ProductionButtonSetected = true;
+            this.CalibrationButtonSetected = false;
             ClearForm();
         }
 
+        private void buttonCalibration_Click(object sender, EventArgs e)
+        {
+            if (XtraMessageBox.Show("This action is going to calibrate the Battery, please make sure there is not a load or charger connected to the battery. Are you ready?", "NLX NOCO",
+                   MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                this.serialPort1.Write("C");
+                this.DebugButtonSetected = false;
+                this.ProductionButtonSetected = false;
+                this.CalibrationButtonSetected = true;
+                ClearForm();
+            }
+            
+        }
+        
         private void buttonDisconnect_Click(object sender, EventArgs e)
         {
             if (this.serialPort1.IsOpen)
             {
                 this.serialPort1.Close();
                 ClearForm();
-                this.buttonConnect.Text = "Disconnected";
+                this.buttonConnect.Text = "Connect";
+                this.buttonCalibration.Enabled = false;
+                this.buttonProduction.Enabled = false;
+                this.buttonDebug.Enabled = false;
             }
         }
         
         private void SerialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
          {
             var data = new List<int>();                                         // to use array need to know the lenght. For variable length use a list
-
+            var calibration = 0;
             //var counter = 0;
             int headerIndex = 0;
             var bufferLength = 0;
 
-
-            while (serialPort1.BytesToRead > 0)                                   // waits here if there are bytes to read
+            if (DebugButtonSetected)
             {
-                data.Add(this.serialPort1.ReadByte());
-
-                //Debug.WriteLine(data[counter]+ " Fecha:" + DateTime.Now.ToString());
-                //counter++;
-            }
-                                                                        // buffer= 0x55,0x55, dataLength,...data...,0xff,0xff  
-            if (data.Contains(0x55))                                    // checks if the list contains the first 0x55 byte of the header
-            {
-                headerIndex = data.IndexOf(0x55);                       // finds the index of the first byte of the header
-
-                if (headerIndex != -1 && data.Count > headerIndex + 2 && data[headerIndex + 1] == 0x55 )
+                while (serialPort1.BytesToRead > 0)                                   // waits here if there are bytes to read
                 {
-                   bufferLength = data[headerIndex + 2];                //gets the length of the buffer from the firmware. Variable length is allow for spare data
+                    data.Add(this.serialPort1.ReadByte());
+
+                    //Debug.WriteLine(data[counter]+ " Fecha:" + DateTime.Now.ToString());
+                    //counter++;
                 }
-            }
-            if (bufferLength != 0)
-            {
-                //checks for the header and terminator
-                if (data[headerIndex] == 0x55 && data[headerIndex + 1] == 0x55 && data[bufferLength - 1] == 0xff && data[bufferLength - 2] == 0xff)
+                // buffer= 0x55,0x55, dataLength,...data...,0xff,0xff  
+                if (data.Contains(0x55))                                    // checks if the list contains the first 0x55 byte of the header
                 {
-                    //DataCounter++;
-                    //private DateTime previousDateTime = DateTime.Now;
-                    if (DataLengthwithSpares - bufferLength > 0)
+                    headerIndex = data.IndexOf(0x55);                       // finds the index of the first byte of the header
+
+                    if (headerIndex != -1 && data.Count > headerIndex + 2 && data[headerIndex + 1] == 0x55)
                     {
-                        for (int i = bufferLength - 2; i < DataLengthwithSpares; i++)
+                        bufferLength = data[headerIndex + 2];                //gets the length of the buffer from the firmware. Variable length is allow for spare data
+                    }
+                }
+                if (bufferLength != 0)
+                {
+                    //checks for the header and terminator
+                    if (data[headerIndex] == 0x55 && data[headerIndex + 1] == 0x55 && data[bufferLength - 1] == 0xff && data[bufferLength - 2] == 0xff)
+                    {
+                        //DataCounter++;
+                        //private DateTime previousDateTime = DateTime.Now;
+                        if (DataLengthwithSpares - bufferLength > 0)
                         {
-                            data.Insert(i, 0);
+                            for (int i = bufferLength - 2; i < DataLengthwithSpares; i++)
+                            {
+                                data.Insert(i, 0);
+                            }
+                            int[] dataCompletedWithSpare = new int[DataLengthwithSpares];
+                            Array.ConstrainedCopy(data.ToArray(), headerIndex, dataCompletedWithSpare, 0, DataLengthwithSpares);
+                            GetBatteryData(dataCompletedWithSpare);
                         }
-                        int[] dataCompletedWithSpare = new int[DataLengthwithSpares];
-                        Array.ConstrainedCopy(data.ToArray(), headerIndex, dataCompletedWithSpare, 0, DataLengthwithSpares);
-                        GetBatteryData(dataCompletedWithSpare);
+                        else
+                        {
+                            int[] dataCompleted = new int[bufferLength];
+                            Array.ConstrainedCopy(data.ToArray(), headerIndex, dataCompleted, 0, bufferLength);
+                            GetBatteryData(dataCompleted);
+                        }
+
+                        DataStatus = "Data Received";
+
                     }
                     else
                     {
-                        int[] dataCompleted = new int[bufferLength];
-                        Array.ConstrainedCopy(data.ToArray(), headerIndex, dataCompleted, 0, bufferLength);
-                        GetBatteryData(dataCompleted);
+                        DataStatus = "Package Error";
                     }
-
-                    DataStatus = "Data Received";
-
                 }
-                else 
-                {
-                    DataStatus = "Package Error";
-                }
+
+                setBMSFaults(UARTFault);
+                _context.Post(UpdateBatteryStatus(), null);
             }
 
-             setBMSFaults(UARTFault);
-             _context.Post(UpdateBatteryStatus(), null);
+            if (CalibrationButtonSetected)
+            {
+                while (serialPort1.BytesToRead > 0)                                   // waits here if there are bytes to read
+                {
+                    calibration = this.serialPort1.ReadByte();
+                }
+
+                if (calibration == 1)
+                {
+                    XtraMessageBox.Show("Battery Calibrated");
+                }
+                else if (calibration == 2)
+                {
+                    XtraMessageBox.Show("ERROR during calibration, please check that there is not a load or charger connected");
+                }
+            }
          }
         private int ConvertBytesDataRxToInt(int dataMSB, int dataLSB)
         {
@@ -362,7 +416,7 @@ namespace IBMS_GUI
             UARTFault = ConvertBytesDataRxToInt(DataRX[15], DataRX[14]).ToString();
 
             DsgCurrent = ConvertBytesDataRxToFloat(DataRX[17], DataRX[16], 1).ToString();
-            ChgCurrent = ConvertBytesDataRxToFloat(DataRX[19], DataRX[18], 1).ToString();
+            ChgCurrent = ConvertBytesDataRxToFloat(DataRX[19], DataRX[18], 0.1).ToString();
 
             Cell1Volt = ConvertBytesDataRxToFloat(DataRX[21], DataRX[20], 0.001).ToString();
             Cell2Volt = ConvertBytesDataRxToFloat(DataRX[23], DataRX[22], 0.001).ToString();
@@ -370,7 +424,7 @@ namespace IBMS_GUI
             Cell4Volt = ConvertBytesDataRxToFloat(DataRX[27], DataRX[26], 0.001).ToString();
             BattVolt = ConvertBytesDataRxToFloat(DataRX[29], DataRX[28], 0.01).ToString();
 
-            battTemp = ConvertBytesDataRxToFloat(DataRX[31], DataRX[30], 0.001);
+            battTemp = ConvertBytesDataRxToFloat(DataRX[31], DataRX[30], 0.001); 
             if (battTemp != -9999)
                 battTemp = ConvertNTCVoltageToTemp(battTemp, BATT_BETA);
             BatteryTemp = Math.Round(battTemp, 1).ToString();
@@ -853,5 +907,6 @@ namespace IBMS_GUI
            }
         }
 
+        
     }
 }
