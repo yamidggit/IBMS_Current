@@ -34,8 +34,8 @@ namespace IBMS_GUI
         private string BattBalance = String.Empty;
         private string FirmwareVersion = String.Empty;
         private string UARTFault = String.Empty;
-        private string Spare1 = String.Empty;
-        private string Spare2 = String.Empty;
+        private string IDSGCal = String.Empty;
+        private string ICHGCal = String.Empty;
         private string Spare3 = String.Empty;
         private string Spare4 = String.Empty;
         private string Spare5 = String.Empty;
@@ -43,6 +43,7 @@ namespace IBMS_GUI
         private string Spare7 = String.Empty;
         private string Spare8 = String.Empty;
         private string DataStatus = String.Empty;
+        private string ICalibrationStatus = String.Empty;
 
         // faults flags
         private bool OV_Flag = false;
@@ -72,7 +73,7 @@ namespace IBMS_GUI
         private int CurrentState = 1;
         private int NextState = 1;
 
-        private int DataLengthwithSpares = 52;
+        private int DataLengthwithSpares = 54;
         private int seconds = 0;
         private int DataCounter = -1;
 
@@ -153,6 +154,7 @@ namespace IBMS_GUI
             this.checkEditOTP.ReadOnly = true;
             this.checkEditOCD2.ReadOnly = true;
             this.checkEditOCD1_SC.ReadOnly = true;
+            this.checkEditCalibration.ReadOnly = true;
 
             this.checkEditUV.ForeColor = Color.Black;
             this.checkEditOV.ForeColor = Color.Black;
@@ -171,8 +173,11 @@ namespace IBMS_GUI
             this.checkEditOTP.Checked = false;
             this.checkEditOCD2.Checked = false;
             this.checkEditOCD1_SC.Checked = false;
+            this.checkEditCalibration.Checked = false;
 
-            
+            this.checkEditCalibration.Text = "Not Calibrated";
+
+
         }
 
         private void ClearFaults()
@@ -197,7 +202,11 @@ namespace IBMS_GUI
             this.checkEditOCD1_SC.ForeColor = Color.Black;
         }
 
-      
+        private void ClearCalibrationStatus()
+        {
+            this.checkEditCalibration.Checked = false;
+            this.checkEditCalibration.Text = "Not Calibrated";
+        }
 
         private async void buttonConnect_Click(object sender, EventArgs e)
         {
@@ -440,16 +449,19 @@ namespace IBMS_GUI
                 MCUtemp = ConvertMCU_NTCVoltToTemp(MCUtemp);
             MCUT = Math.Round(MCUtemp, 1).ToString();
 
-            
 
-            Spare1 = ConvertBytesDataRxToInt(DataRX[37], DataRX[36]).ToString();
-            Spare2 = ConvertBytesDataRxToInt(DataRX[39], DataRX[38]).ToString();
-            Spare3 = ConvertBytesDataRxToInt(DataRX[41], DataRX[40]).ToString();
-            Spare4 = ConvertBytesDataRxToInt(DataRX[43], DataRX[42]).ToString();
-            Spare5 = ConvertBytesDataRxToInt(DataRX[45], DataRX[44]).ToString();
-            Spare6 = ConvertBytesDataRxToInt(DataRX[47], DataRX[46]).ToString();
-            Spare7 = ConvertBytesDataRxToInt(DataRX[49], DataRX[48]).ToString();
-            Spare8 = ConvertBytesDataRxToInt(DataRX[51], DataRX[50]).ToString();
+
+            IDSGCal = ConvertBytesDataRxToFloat(DataRX[37], DataRX[36], 0.01).ToString();
+            ICHGCal = ConvertBytesDataRxToFloat(DataRX[39], DataRX[38], 0.01).ToString();
+
+            ICalibrationStatus = ConvertBytesDataRxToInt(DataRX[41], DataRX[40]).ToString();
+
+            Spare3 = ConvertBytesDataRxToInt(DataRX[43], DataRX[42]).ToString();
+            Spare4 = ConvertBytesDataRxToInt(DataRX[45], DataRX[44]).ToString();
+            Spare5 = ConvertBytesDataRxToInt(DataRX[47], DataRX[46]).ToString();
+            Spare6 = ConvertBytesDataRxToInt(DataRX[49], DataRX[48]).ToString();
+            Spare7 = ConvertBytesDataRxToInt(DataRX[51], DataRX[50]).ToString();
+            Spare8 = ConvertBytesDataRxToInt(DataRX[53], DataRX[52]).ToString();
 
             if (_workbook != null)    
                 UpdateExcel();
@@ -556,8 +568,8 @@ namespace IBMS_GUI
                 this.labelMCUT.Text = MCUT;
                 this.labelBMSfault.Text = Fault;
                 this.labelFVersion.Text = "NLX NOCO V" + FirmwareVersion;
-                this.labelSpare1.Text = Spare1;
-                this.labelSpare2.Text = Spare2;
+                this.labelSpare1.Text = IDSGCal;
+                this.labelSpare2.Text = ICHGCal;
                 this.labelSpare3.Text = Spare3;
                 this.labelSpare4.Text = Spare4;
                 this.labelSpare5.Text = Spare5;
@@ -571,6 +583,7 @@ namespace IBMS_GUI
                 UpdateBalanceStatus(this.BattBalance, this.toggleSwitchBal);
                 UpdateFaultStatus();
                 DataRXLightIndicator();
+                UpdateCurrentCalibrationStatus();
             };
         }
 
@@ -762,6 +775,16 @@ namespace IBMS_GUI
             }
         }
 
+        private void UpdateCurrentCalibrationStatus()
+        {
+            if (this.ICalibrationStatus == "1")
+            {
+                this.checkEditCalibration.Checked = true;
+                this.checkEditCalibration.Text = "Current Calibrated";
+            }
+            else
+                ClearCalibrationStatus();
+        }
         private string OV_Fault()
         {
             var cell1 = Convert.ToDouble(this.Cell1Volt);
