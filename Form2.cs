@@ -36,7 +36,7 @@ namespace IBMS_GUI
         private string UARTFault = String.Empty;
         private string IDSGCal = String.Empty;
         private string ICHGCal = String.Empty;
-        private string Spare3 = String.Empty;
+        private string WDResets = String.Empty;
         private string Spare4 = String.Empty;
         private string Spare5 = String.Empty;
         private string Spare6 = String.Empty;
@@ -44,6 +44,8 @@ namespace IBMS_GUI
         private string Spare8 = String.Empty;
         private string DataStatus = String.Empty;
         private string ICalibrationStatus = String.Empty;
+        private string ICHGCalError = String.Empty;
+        private string IDSGCalError = String.Empty;
 
         // faults flags
         private bool OV_Flag = false;
@@ -74,6 +76,7 @@ namespace IBMS_GUI
         private int NextState = 1;
 
         private int DataLengthwithSpares = 54;
+        private int CalibrationDataLength = 12;
         private int seconds = 0;
         private int DataCounter = -1;
 
@@ -153,6 +156,8 @@ namespace IBMS_GUI
             this.checkEditOTF.ReadOnly = true;
             this.checkEditOTP.ReadOnly = true;
             this.checkEditOCD2.ReadOnly = true;
+            this.checkEditOCD3.ReadOnly = true;
+            this.checkEditOCD4.ReadOnly = true;
             this.checkEditOCD1_SC.ReadOnly = true;
             this.checkEditCalibration.ReadOnly = true;
 
@@ -163,6 +168,8 @@ namespace IBMS_GUI
             this.checkEditOTF.ForeColor = Color.Black;
             this.checkEditOTP.ForeColor = Color.Black;
             this.checkEditOCD2.ForeColor = Color.Black;
+            this.checkEditOCD3.ForeColor = Color.Black;
+            this.checkEditOCD4.ForeColor = Color.Black;
             this.checkEditOCD1_SC.ForeColor = Color.Black;
 
             this.checkEditUV.Checked = false;
@@ -172,6 +179,8 @@ namespace IBMS_GUI
             this.checkEditOTF.Checked = false;
             this.checkEditOTP.Checked = false;
             this.checkEditOCD2.Checked = false;
+            this.checkEditOCD3.Checked = false;
+            this.checkEditOCD4.Checked = false;
             this.checkEditOCD1_SC.Checked = false;
             this.checkEditCalibration.Checked = false;
 
@@ -190,6 +199,8 @@ namespace IBMS_GUI
             this.checkEditOTF.Checked = false;
             this.checkEditOTP.Checked = false;
             this.checkEditOCD2.Checked = false;
+            this.checkEditOCD3.Checked = false;
+            this.checkEditOCD4.Checked = false;
             this.checkEditOCD1_SC.Checked = false;
 
             this.checkEditUV.ForeColor = Color.Black;
@@ -199,6 +210,8 @@ namespace IBMS_GUI
             this.checkEditOTF.ForeColor = Color.Black;
             this.checkEditOTP.ForeColor = Color.Black;
             this.checkEditOCD2.ForeColor = Color.Black;
+            this.checkEditOCD3.ForeColor = Color.Black;
+            this.checkEditOCD4.ForeColor = Color.Black;
             this.checkEditOCD1_SC.ForeColor = Color.Black;
         }
 
@@ -279,13 +292,54 @@ namespace IBMS_GUI
             }
         }
         
+        private int[] ValidateRXData(List<int> data, int DataLength)
+        {
+            int headerIndex = 0;
+            var bufferLength = 0;
+            int[] dataCompleted = new int[DataLength];
+
+            if (data.Contains(0x55))                                    // checks if the list contains the first 0x55 byte of the header
+            {
+                headerIndex = data.IndexOf(0x55);                       // finds the index of the first byte of the header
+
+                if (headerIndex != -1 && data.Count > headerIndex + 2 && data[headerIndex + 1] == 0x55)
+                {
+                    bufferLength = data[headerIndex + 2];                //gets the length of the buffer from the firmware. Variable length is allow for spare data
+                }
+            }
+            if (bufferLength != 0)
+            {
+                //checks for the header and terminator
+                if (data[headerIndex] == 0x55 && data[headerIndex + 1] == 0x55 && data[bufferLength - 1] == 0xff && data[bufferLength - 2] == 0xff)
+                {
+
+                    //private DateTime previousDateTime = DateTime.Now;
+                    if (DataLength - bufferLength > 0)
+                    {
+                        for (int i = bufferLength - 2; i < DataLength; i++)
+                        {
+                            data.Insert(i, 0);
+                        }
+                    } 
+
+                    Array.ConstrainedCopy(data.ToArray(), headerIndex, dataCompleted, 0, bufferLength);
+
+                    DataStatus = "Data Received";
+                }
+                else
+                {
+                    DataStatus = "Package Error";
+                }
+            }
+            return dataCompleted;
+        }
+        
         private void SerialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
          {
             var data = new List<int>();                                         // to use array need to know the lenght. For variable length use a list
-            var calibration = 0;
-            //var counter = 0;
-            int headerIndex = 0;
-            var bufferLength = 0;
+            var caldata = new List<int>();
+
+            int[] dataCompleted = new int[DataLengthwithSpares];
 
             if (DebugButtonSetected)
             {
@@ -296,49 +350,12 @@ namespace IBMS_GUI
                     //Debug.WriteLine(data[counter]+ " Fecha:" + DateTime.Now.ToString());
                     //counter++;
                 }
-                // buffer= 0x55,0x55, dataLength,...data...,0xff,0xff  
-                if (data.Contains(0x55))                                    // checks if the list contains the first 0x55 byte of the header
+
+                dataCompleted = ValidateRXData(data, DataLengthwithSpares);
+                if (DataStatus == "Data Received")                                  //need to add another validation for datacompleted 
                 {
-                    headerIndex = data.IndexOf(0x55);                       // finds the index of the first byte of the header
-
-                    if (headerIndex != -1 && data.Count > headerIndex + 2 && data[headerIndex + 1] == 0x55)
-                    {
-                        bufferLength = data[headerIndex + 2];                //gets the length of the buffer from the firmware. Variable length is allow for spare data
-                    }
+                    GetBatteryData(dataCompleted);
                 }
-                if (bufferLength != 0)
-                {
-                    //checks for the header and terminator
-                    if (data[headerIndex] == 0x55 && data[headerIndex + 1] == 0x55 && data[bufferLength - 1] == 0xff && data[bufferLength - 2] == 0xff)
-                    {
-                        //DataCounter++;
-                        //private DateTime previousDateTime = DateTime.Now;
-                        if (DataLengthwithSpares - bufferLength > 0)
-                        {
-                            for (int i = bufferLength - 2; i < DataLengthwithSpares; i++)
-                            {
-                                data.Insert(i, 0);
-                            }
-                            int[] dataCompletedWithSpare = new int[DataLengthwithSpares];
-                            Array.ConstrainedCopy(data.ToArray(), headerIndex, dataCompletedWithSpare, 0, DataLengthwithSpares);
-                            GetBatteryData(dataCompletedWithSpare);
-                        }
-                        else
-                        {
-                            int[] dataCompleted = new int[bufferLength];
-                            Array.ConstrainedCopy(data.ToArray(), headerIndex, dataCompleted, 0, bufferLength);
-                            GetBatteryData(dataCompleted);
-                        }
-
-                        DataStatus = "Data Received";
-
-                    }
-                    else
-                    {
-                        DataStatus = "Package Error";
-                    }
-                }
-
                 setBMSFaults(UARTFault);
                 _context.Post(UpdateBatteryStatus(), null);
             }
@@ -347,18 +364,25 @@ namespace IBMS_GUI
             {
                 while (serialPort1.BytesToRead > 0)                                   // waits here if there are bytes to read
                 {
-                    calibration = this.serialPort1.ReadByte();
+                    caldata.Add(this.serialPort1.ReadByte());
                 }
+                dataCompleted = ValidateRXData(caldata, CalibrationDataLength);
 
-                if (calibration == 1)
+                if (DataStatus == "Data Received")                                  //need to add another validation for datacompleted 
                 {
-                    XtraMessageBox.Show("Battery Calibrated");
+                    GetCalibrationData(dataCompleted);
+                    
+                    if (ICalibrationStatus == "1")
+                    {
+                        XtraMessageBox.Show("Battery Calibrated");
+                    }
+                    else if (ICalibrationStatus == "2")
+                    {
+                        XtraMessageBox.Show("ERROR during calibration. Fail to calibrate the battery with ICharge = "+ ICHGCalError+ "A, and IDischarge = " + IDSGCalError + "A");
+                    }
+
                 }
-                else if (calibration == 2)
-                {
-                    XtraMessageBox.Show("ERROR during calibration, please check that there is not a load or charger connected");
-                }
-            }
+            }    
          }
         private int ConvertBytesDataRxToInt(int dataMSB, int dataLSB)
         {
@@ -411,6 +435,14 @@ namespace IBMS_GUI
             }
             return lenght;
         }
+
+        private void GetCalibrationData(int[] DataRX)
+        {
+            ICalibrationStatus = ConvertBytesDataRxToInt(DataRX[5], DataRX[4]).ToString();
+            ICHGCalError = ConvertBytesDataRxToFloat(DataRX[7], DataRX[6], 0.01).ToString();
+            IDSGCalError = ConvertBytesDataRxToFloat(DataRX[9], DataRX[8], 0.01).ToString();
+
+        }
         private void GetBatteryData(int[] DataRX)
         {
             float battTemp, FETtemp, MCUtemp = 0;
@@ -456,7 +488,7 @@ namespace IBMS_GUI
 
             ICalibrationStatus = ConvertBytesDataRxToInt(DataRX[41], DataRX[40]).ToString();
 
-            Spare3 = ConvertBytesDataRxToInt(DataRX[43], DataRX[42]).ToString();
+            WDResets = ConvertBytesDataRxToInt(DataRX[43], DataRX[42]).ToString();
             Spare4 = ConvertBytesDataRxToInt(DataRX[45], DataRX[44]).ToString();
             Spare5 = ConvertBytesDataRxToInt(DataRX[47], DataRX[46]).ToString();
             Spare6 = ConvertBytesDataRxToInt(DataRX[49], DataRX[48]).ToString();
@@ -570,7 +602,7 @@ namespace IBMS_GUI
                 this.labelFVersion.Text = "NLX NOCO V" + FirmwareVersion;
                 this.labelSpare1.Text = IDSGCal;
                 this.labelSpare2.Text = ICHGCal;
-                this.labelSpare3.Text = Spare3;
+                this.labelSpare3.Text = WDResets;
                 this.labelSpare4.Text = Spare4;
                 this.labelSpare5.Text = Spare5;
                 this.labelSpare6.Text = Spare6;
@@ -640,7 +672,7 @@ namespace IBMS_GUI
             var fault = !(String.IsNullOrEmpty(bmsFault)) ? Convert.ToInt32(bmsFault) : 0;
             bool faultPresent = false;
 
-            if (fault > 0 && fault < 6)
+            if (fault > 0 && fault < 8)
                 faultPresent = true;
 
             return faultPresent;
@@ -668,6 +700,12 @@ namespace IBMS_GUI
                     break;
                 case "5":
                     UART_FAULT = "OCD2";
+                    break;
+                case "6":
+                    UART_FAULT = "OCD3";
+                    break;
+                case "7":
+                    UART_FAULT = "OCD4";
                     break;
 
                 default:
@@ -872,6 +910,14 @@ namespace IBMS_GUI
                 case "OCD2":
                     this.checkEditOCD2.Checked = true;
                     this.checkEditOCD2.ForeColor = Color.Red;
+                    break;
+                case "OCD3":
+                    this.checkEditOCD3.Checked = true;
+                    this.checkEditOCD3.ForeColor = Color.Red;
+                    break;
+                case "OCD4":
+                    this.checkEditOCD4.Checked = true;
+                    this.checkEditOCD4.ForeColor = Color.Red;
                     break;
                 case "OCD_SC":
                     this.checkEditOCD1_SC.Checked = true;

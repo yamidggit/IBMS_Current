@@ -48,14 +48,16 @@ namespace IBMS_GUI
             this.label27 = new System.Windows.Forms.Label();
             this.labelBMSfault = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.checkEditOCD4 = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEditOCD3 = new DevExpress.XtraEditors.CheckEdit();
             this.checkEditOTP = new DevExpress.XtraEditors.CheckEdit();
             this.checkEditOCD1_SC = new DevExpress.XtraEditors.CheckEdit();
+            this.checkEditOCD2 = new DevExpress.XtraEditors.CheckEdit();
             this.checkEditUTB = new DevExpress.XtraEditors.CheckEdit();
             this.checkEditOTF = new DevExpress.XtraEditors.CheckEdit();
             this.checkEditOTB = new DevExpress.XtraEditors.CheckEdit();
             this.checkEditOV = new DevExpress.XtraEditors.CheckEdit();
             this.checkEditUV = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEditOCD2 = new DevExpress.XtraEditors.CheckEdit();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label28 = new System.Windows.Forms.Label();
             this.toggleSwitchBal = new DevExpress.XtraEditors.ToggleSwitch();
@@ -120,7 +122,6 @@ namespace IBMS_GUI
             this.labelSpare5 = new System.Windows.Forms.Label();
             this.labelSpare4 = new System.Windows.Forms.Label();
             this.labelSpare3 = new System.Windows.Forms.Label();
-            this.label109 = new System.Windows.Forms.Label();
             this.label110 = new System.Windows.Forms.Label();
             this.label111 = new System.Windows.Forms.Label();
             this.label112 = new System.Windows.Forms.Label();
@@ -130,10 +131,12 @@ namespace IBMS_GUI
             this.labelSpare7 = new System.Windows.Forms.Label();
             this.labelSpare8 = new System.Windows.Forms.Label();
             this.label132 = new System.Windows.Forms.Label();
-            this.label135 = new System.Windows.Forms.Label();
             this.labelSpare2 = new System.Windows.Forms.Label();
             this.label115 = new System.Windows.Forms.Label();
             this.label117 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label135 = new System.Windows.Forms.Label();
+            this.label109 = new System.Windows.Forms.Label();
             this.labelBattID = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.toggleSwitchRecord = new DevExpress.XtraEditors.ToggleSwitch();
@@ -142,7 +145,6 @@ namespace IBMS_GUI
             this.buttonDebug = new System.Windows.Forms.Button();
             this.buttonProduction = new System.Windows.Forms.Button();
             this.buttonCalibration = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.checkEditCalibration = new DevExpress.XtraEditors.CheckEdit();
@@ -150,14 +152,16 @@ namespace IBMS_GUI
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitchCHG.Properties)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditOCD4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditOCD3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditOTP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditOCD1_SC.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditOCD2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditUTB.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditOTF.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditOTB.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditOV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditUV.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditOCD2.Properties)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitchBal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -345,6 +349,8 @@ namespace IBMS_GUI
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.Control;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.checkEditOCD4);
+            this.panel5.Controls.Add(this.checkEditOCD3);
             this.panel5.Controls.Add(this.checkEditOTP);
             this.panel5.Controls.Add(this.checkEditOCD1_SC);
             this.panel5.Controls.Add(this.checkEditOCD2);
@@ -358,12 +364,34 @@ namespace IBMS_GUI
             this.panel5.Location = new System.Drawing.Point(534, 253);
             this.panel5.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(348, 162);
+            this.panel5.Size = new System.Drawing.Size(348, 180);
             this.panel5.TabIndex = 18;
+            // 
+            // checkEditOCD4
+            // 
+            this.checkEditOCD4.Location = new System.Drawing.Point(14, 132);
+            this.checkEditOCD4.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.checkEditOCD4.Name = "checkEditOCD4";
+            this.checkEditOCD4.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkEditOCD4.Properties.Appearance.Options.UseFont = true;
+            this.checkEditOCD4.Properties.Caption = "OCD4";
+            this.checkEditOCD4.Size = new System.Drawing.Size(92, 28);
+            this.checkEditOCD4.TabIndex = 32;
+            // 
+            // checkEditOCD3
+            // 
+            this.checkEditOCD3.Location = new System.Drawing.Point(242, 102);
+            this.checkEditOCD3.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.checkEditOCD3.Name = "checkEditOCD3";
+            this.checkEditOCD3.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkEditOCD3.Properties.Appearance.Options.UseFont = true;
+            this.checkEditOCD3.Properties.Caption = "OCD3";
+            this.checkEditOCD3.Size = new System.Drawing.Size(92, 28);
+            this.checkEditOCD3.TabIndex = 31;
             // 
             // checkEditOTP
             // 
-            this.checkEditOTP.Location = new System.Drawing.Point(14, 84);
+            this.checkEditOTP.Location = new System.Drawing.Point(14, 72);
             this.checkEditOTP.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.checkEditOTP.Name = "checkEditOTP";
             this.checkEditOTP.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -374,7 +402,7 @@ namespace IBMS_GUI
             // 
             // checkEditOCD1_SC
             // 
-            this.checkEditOCD1_SC.Location = new System.Drawing.Point(14, 119);
+            this.checkEditOCD1_SC.Location = new System.Drawing.Point(14, 102);
             this.checkEditOCD1_SC.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.checkEditOCD1_SC.Name = "checkEditOCD1_SC";
             this.checkEditOCD1_SC.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -383,9 +411,20 @@ namespace IBMS_GUI
             this.checkEditOCD1_SC.Size = new System.Drawing.Size(118, 28);
             this.checkEditOCD1_SC.TabIndex = 29;
             // 
+            // checkEditOCD2
+            // 
+            this.checkEditOCD2.Location = new System.Drawing.Point(142, 102);
+            this.checkEditOCD2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.checkEditOCD2.Name = "checkEditOCD2";
+            this.checkEditOCD2.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkEditOCD2.Properties.Appearance.Options.UseFont = true;
+            this.checkEditOCD2.Properties.Caption = "OCD2";
+            this.checkEditOCD2.Size = new System.Drawing.Size(92, 28);
+            this.checkEditOCD2.TabIndex = 28;
+            // 
             // checkEditUTB
             // 
-            this.checkEditUTB.Location = new System.Drawing.Point(242, 49);
+            this.checkEditUTB.Location = new System.Drawing.Point(242, 42);
             this.checkEditUTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.checkEditUTB.Name = "checkEditUTB";
             this.checkEditUTB.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -396,7 +435,7 @@ namespace IBMS_GUI
             // 
             // checkEditOTF
             // 
-            this.checkEditOTF.Location = new System.Drawing.Point(242, 84);
+            this.checkEditOTF.Location = new System.Drawing.Point(242, 72);
             this.checkEditOTF.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.checkEditOTF.Name = "checkEditOTF";
             this.checkEditOTF.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -407,7 +446,7 @@ namespace IBMS_GUI
             // 
             // checkEditOTB
             // 
-            this.checkEditOTB.Location = new System.Drawing.Point(142, 84);
+            this.checkEditOTB.Location = new System.Drawing.Point(142, 72);
             this.checkEditOTB.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.checkEditOTB.Name = "checkEditOTB";
             this.checkEditOTB.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -418,7 +457,7 @@ namespace IBMS_GUI
             // 
             // checkEditOV
             // 
-            this.checkEditOV.Location = new System.Drawing.Point(142, 49);
+            this.checkEditOV.Location = new System.Drawing.Point(142, 42);
             this.checkEditOV.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.checkEditOV.Name = "checkEditOV";
             this.checkEditOV.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -429,7 +468,7 @@ namespace IBMS_GUI
             // 
             // checkEditUV
             // 
-            this.checkEditUV.Location = new System.Drawing.Point(14, 49);
+            this.checkEditUV.Location = new System.Drawing.Point(14, 42);
             this.checkEditUV.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.checkEditUV.Name = "checkEditUV";
             this.checkEditUV.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -438,17 +477,6 @@ namespace IBMS_GUI
             this.checkEditUV.Size = new System.Drawing.Size(68, 28);
             this.checkEditUV.TabIndex = 23;
             // 
-            // checkEditOCD2
-            // 
-            this.checkEditOCD2.Location = new System.Drawing.Point(141, 119);
-            this.checkEditOCD2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.checkEditOCD2.Name = "checkEditOCD2";
-            this.checkEditOCD2.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkEditOCD2.Properties.Appearance.Options.UseFont = true;
-            this.checkEditOCD2.Properties.Caption = "OCD2";
-            this.checkEditOCD2.Size = new System.Drawing.Size(92, 28);
-            this.checkEditOCD2.TabIndex = 28;
-            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.Control;
@@ -456,7 +484,7 @@ namespace IBMS_GUI
             this.panel6.Controls.Add(this.label28);
             this.panel6.Controls.Add(this.toggleSwitchBal);
             this.panel6.Controls.Add(this.label30);
-            this.panel6.Location = new System.Drawing.Point(534, 431);
+            this.panel6.Location = new System.Drawing.Point(534, 446);
             this.panel6.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(348, 85);
@@ -533,7 +561,7 @@ namespace IBMS_GUI
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label31.Location = new System.Drawing.Point(539, 651);
+            this.label31.Location = new System.Drawing.Point(539, 643);
             this.label31.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(170, 25);
@@ -583,7 +611,7 @@ namespace IBMS_GUI
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(406, 276);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(410, 312);
             this.tableLayoutPanel1.TabIndex = 13;
             // 
             // labelCell4V
@@ -591,7 +619,7 @@ namespace IBMS_GUI
             this.labelCell4V.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelCell4V.AutoSize = true;
             this.labelCell4V.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCell4V.Location = new System.Drawing.Point(237, 238);
+            this.labelCell4V.Location = new System.Drawing.Point(240, 271);
             this.labelCell4V.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCell4V.Name = "labelCell4V";
             this.labelCell4V.Size = new System.Drawing.Size(64, 25);
@@ -603,7 +631,7 @@ namespace IBMS_GUI
             this.labelCell3V.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelCell3V.AutoSize = true;
             this.labelCell3V.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCell3V.Location = new System.Drawing.Point(237, 190);
+            this.labelCell3V.Location = new System.Drawing.Point(240, 217);
             this.labelCell3V.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCell3V.Name = "labelCell3V";
             this.labelCell3V.Size = new System.Drawing.Size(64, 25);
@@ -615,7 +643,7 @@ namespace IBMS_GUI
             this.labelCell2V.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelCell2V.AutoSize = true;
             this.labelCell2V.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCell2V.Location = new System.Drawing.Point(237, 145);
+            this.labelCell2V.Location = new System.Drawing.Point(240, 166);
             this.labelCell2V.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCell2V.Name = "labelCell2V";
             this.labelCell2V.Size = new System.Drawing.Size(64, 25);
@@ -627,7 +655,7 @@ namespace IBMS_GUI
             this.labelCell1V.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelCell1V.AutoSize = true;
             this.labelCell1V.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCell1V.Location = new System.Drawing.Point(237, 100);
+            this.labelCell1V.Location = new System.Drawing.Point(240, 115);
             this.labelCell1V.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCell1V.Name = "labelCell1V";
             this.labelCell1V.Size = new System.Drawing.Size(64, 25);
@@ -639,7 +667,7 @@ namespace IBMS_GUI
             this.labelBattV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelBattV.AutoSize = true;
             this.labelBattV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBattV.Location = new System.Drawing.Point(237, 55);
+            this.labelBattV.Location = new System.Drawing.Point(240, 64);
             this.labelBattV.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelBattV.Name = "labelBattV";
             this.labelBattV.Size = new System.Drawing.Size(64, 25);
@@ -651,7 +679,7 @@ namespace IBMS_GUI
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(333, 10);
+            this.label5.Location = new System.Drawing.Point(337, 13);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 25);
@@ -663,7 +691,7 @@ namespace IBMS_GUI
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(235, 10);
+            this.label4.Location = new System.Drawing.Point(238, 13);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 25);
@@ -675,7 +703,7 @@ namespace IBMS_GUI
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(41, 56);
+            this.label7.Location = new System.Drawing.Point(42, 65);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(135, 24);
@@ -687,7 +715,7 @@ namespace IBMS_GUI
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(45, 101);
+            this.label8.Location = new System.Drawing.Point(46, 116);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(126, 24);
@@ -699,7 +727,7 @@ namespace IBMS_GUI
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(45, 146);
+            this.label9.Location = new System.Drawing.Point(46, 167);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(126, 24);
@@ -711,7 +739,7 @@ namespace IBMS_GUI
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(45, 191);
+            this.label10.Location = new System.Drawing.Point(46, 218);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(126, 24);
@@ -723,7 +751,7 @@ namespace IBMS_GUI
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(45, 238);
+            this.label11.Location = new System.Drawing.Point(46, 271);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(126, 24);
@@ -735,7 +763,7 @@ namespace IBMS_GUI
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(338, 56);
+            this.label15.Location = new System.Drawing.Point(342, 65);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(51, 24);
@@ -747,7 +775,7 @@ namespace IBMS_GUI
             this.label17.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(338, 101);
+            this.label17.Location = new System.Drawing.Point(342, 116);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(51, 24);
@@ -759,7 +787,7 @@ namespace IBMS_GUI
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(338, 146);
+            this.label18.Location = new System.Drawing.Point(342, 167);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(51, 24);
@@ -771,7 +799,7 @@ namespace IBMS_GUI
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(338, 191);
+            this.label19.Location = new System.Drawing.Point(342, 218);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(51, 24);
@@ -783,7 +811,7 @@ namespace IBMS_GUI
             this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(338, 238);
+            this.label20.Location = new System.Drawing.Point(342, 271);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(51, 24);
@@ -795,7 +823,7 @@ namespace IBMS_GUI
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(53, 10);
+            this.label3.Location = new System.Drawing.Point(54, 13);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 25);
@@ -855,7 +883,7 @@ namespace IBMS_GUI
             this.xtraTabPage2.Controls.Add(this.tableLayoutPanel2);
             this.xtraTabPage2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.xtraTabPage2.Name = "xtraTabPage2";
-            this.xtraTabPage2.Size = new System.Drawing.Size(470, 348);
+            this.xtraTabPage2.Size = new System.Drawing.Size(471, 394);
             this.xtraTabPage2.Text = "Temperature";
             // 
             // tableLayoutPanel2
@@ -1337,18 +1365,6 @@ namespace IBMS_GUI
             this.labelSpare3.TabIndex = 51;
             this.labelSpare3.Text = "label14";
             // 
-            // label109
-            // 
-            this.label109.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label109.AutoSize = true;
-            this.label109.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label109.Location = new System.Drawing.Point(355, 6);
-            this.label109.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label109.Name = "label109";
-            this.label109.Size = new System.Drawing.Size(61, 25);
-            this.label109.TabIndex = 14;
-            this.label109.Text = "Units";
-            // 
             // label110
             // 
             this.label110.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1378,12 +1394,12 @@ namespace IBMS_GUI
             this.label112.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label112.AutoSize = true;
             this.label112.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label112.Location = new System.Drawing.Point(77, 118);
+            this.label112.Location = new System.Drawing.Point(36, 118);
             this.label112.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label112.Name = "label112";
-            this.label112.Size = new System.Drawing.Size(75, 24);
+            this.label112.Size = new System.Drawing.Size(158, 24);
             this.label112.TabIndex = 17;
-            this.label112.Text = "Spare 1";
+            this.label112.Text = "Watchdog Resets";
             // 
             // label113
             // 
@@ -1457,15 +1473,6 @@ namespace IBMS_GUI
             this.label132.TabIndex = 0;
             this.label132.Text = "Parameter";
             // 
-            // label135
-            // 
-            this.label135.AutoSize = true;
-            this.label135.Location = new System.Drawing.Point(344, 112);
-            this.label135.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label135.Name = "label135";
-            this.label135.Size = new System.Drawing.Size(0, 24);
-            this.label135.TabIndex = 44;
-            // 
             // labelSpare2
             // 
             this.labelSpare2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1502,6 +1509,39 @@ namespace IBMS_GUI
             this.label117.TabIndex = 22;
             this.label117.Text = "Spare 6";
             // 
+            // label16
+            // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(356, 44);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(59, 24);
+            this.label16.TabIndex = 56;
+            this.label16.Text = "Amps";
+            // 
+            // label135
+            // 
+            this.label135.AutoSize = true;
+            this.label135.Location = new System.Drawing.Point(344, 112);
+            this.label135.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label135.Name = "label135";
+            this.label135.Size = new System.Drawing.Size(0, 24);
+            this.label135.TabIndex = 44;
+            // 
+            // label109
+            // 
+            this.label109.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label109.AutoSize = true;
+            this.label109.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label109.Location = new System.Drawing.Point(355, 6);
+            this.label109.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label109.Name = "label109";
+            this.label109.Size = new System.Drawing.Size(61, 25);
+            this.label109.TabIndex = 14;
+            this.label109.Text = "Units";
+            // 
             // labelBattID
             // 
             this.labelBattID.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1529,7 +1569,7 @@ namespace IBMS_GUI
             // 
             // toggleSwitchRecord
             // 
-            this.toggleSwitchRecord.Location = new System.Drawing.Point(676, 695);
+            this.toggleSwitchRecord.Location = new System.Drawing.Point(676, 686);
             this.toggleSwitchRecord.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.toggleSwitchRecord.Name = "toggleSwitchRecord";
             this.toggleSwitchRecord.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1544,7 +1584,7 @@ namespace IBMS_GUI
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(540, 694);
+            this.label12.Location = new System.Drawing.Point(540, 686);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(114, 24);
@@ -1555,7 +1595,7 @@ namespace IBMS_GUI
             // 
             this.labelFVersion.AutoSize = true;
             this.labelFVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFVersion.Location = new System.Drawing.Point(743, 657);
+            this.labelFVersion.Location = new System.Drawing.Point(743, 649);
             this.labelFVersion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelFVersion.Name = "labelFVersion";
             this.labelFVersion.Size = new System.Drawing.Size(0, 20);
@@ -1603,18 +1643,6 @@ namespace IBMS_GUI
             this.buttonCalibration.UseVisualStyleBackColor = false;
             this.buttonCalibration.Click += new System.EventHandler(this.buttonCalibration_Click);
             // 
-            // label16
-            // 
-            this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(356, 44);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(59, 24);
-            this.label16.TabIndex = 56;
-            this.label16.Text = "Amps";
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -1633,7 +1661,7 @@ namespace IBMS_GUI
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.checkEditCalibration);
             this.panel2.Controls.Add(this.label21);
-            this.panel2.Location = new System.Drawing.Point(534, 529);
+            this.panel2.Location = new System.Drawing.Point(534, 543);
             this.panel2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(348, 90);
@@ -1691,14 +1719,16 @@ namespace IBMS_GUI
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditOCD4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditOCD3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditOTP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditOCD1_SC.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.checkEditOCD2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditUTB.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditOTF.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditOTB.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditOV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditUV.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditOCD2.Properties)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitchBal.Properties)).EndInit();
@@ -1848,5 +1878,7 @@ namespace IBMS_GUI
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Panel panel2;
         private DevExpress.XtraEditors.CheckEdit checkEditCalibration;
+        private DevExpress.XtraEditors.CheckEdit checkEditOCD4;
+        private DevExpress.XtraEditors.CheckEdit checkEditOCD3;
     }
 }
