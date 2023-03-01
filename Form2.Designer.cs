@@ -1669,7 +1669,7 @@ namespace IBMS_GUI
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.MaximizeBox = false;
             this.Name = "Form2";
-            this.Text = "NLX NOCO REV 5 FEP ";
+            this.Text = "NLX NOCO REV 5 FEP Initial Test";
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitchDSG.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitchCHG.Properties)).EndInit();
