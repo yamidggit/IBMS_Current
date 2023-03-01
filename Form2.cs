@@ -155,9 +155,6 @@ namespace IBMS_GUI
             this.checkEditOTB.ReadOnly = true;
             this.checkEditOTF.ReadOnly = true;
             this.checkEditOTP.ReadOnly = true;
-            this.checkEditOCD2.ReadOnly = true;
-            this.checkEditOCD3.ReadOnly = true;
-            this.checkEditOCD4.ReadOnly = true;
             this.checkEditOCD1_SC.ReadOnly = true;
             this.checkEditCalibration.ReadOnly = true;
 
@@ -167,9 +164,6 @@ namespace IBMS_GUI
             this.checkEditOTB.ForeColor = Color.Black;
             this.checkEditOTF.ForeColor = Color.Black;
             this.checkEditOTP.ForeColor = Color.Black;
-            this.checkEditOCD2.ForeColor = Color.Black;
-            this.checkEditOCD3.ForeColor = Color.Black;
-            this.checkEditOCD4.ForeColor = Color.Black;
             this.checkEditOCD1_SC.ForeColor = Color.Black;
 
             this.checkEditUV.Checked = false;
@@ -178,13 +172,8 @@ namespace IBMS_GUI
             this.checkEditOTB.Checked = false;
             this.checkEditOTF.Checked = false;
             this.checkEditOTP.Checked = false;
-            this.checkEditOCD2.Checked = false;
-            this.checkEditOCD3.Checked = false;
-            this.checkEditOCD4.Checked = false;
             this.checkEditOCD1_SC.Checked = false;
             this.checkEditCalibration.Checked = false;
-
-            this.checkEditCalibration.Text = "Not Calibrated";
 
 
         }
@@ -198,9 +187,6 @@ namespace IBMS_GUI
             this.checkEditOTB.Checked = false;
             this.checkEditOTF.Checked = false;
             this.checkEditOTP.Checked = false;
-            this.checkEditOCD2.Checked = false;
-            this.checkEditOCD3.Checked = false;
-            this.checkEditOCD4.Checked = false;
             this.checkEditOCD1_SC.Checked = false;
 
             this.checkEditUV.ForeColor = Color.Black;
@@ -209,9 +195,6 @@ namespace IBMS_GUI
             this.checkEditOTB.ForeColor = Color.Black;
             this.checkEditOTF.ForeColor = Color.Black;
             this.checkEditOTP.ForeColor = Color.Black;
-            this.checkEditOCD2.ForeColor = Color.Black;
-            this.checkEditOCD3.ForeColor = Color.Black;
-            this.checkEditOCD4.ForeColor = Color.Black;
             this.checkEditOCD1_SC.ForeColor = Color.Black;
         }
 
@@ -818,7 +801,6 @@ namespace IBMS_GUI
             if (this.ICalibrationStatus == "1")
             {
                 this.checkEditCalibration.Checked = true;
-                this.checkEditCalibration.Text = "Current Calibrated";
             }
             else
                 ClearCalibrationStatus();
@@ -906,18 +888,6 @@ namespace IBMS_GUI
                 case "OTP":
                     this.checkEditOTP.Checked = true;
                     this.checkEditOTP.ForeColor = Color.Red;
-                    break;
-                case "OCD2":
-                    this.checkEditOCD2.Checked = true;
-                    this.checkEditOCD2.ForeColor = Color.Red;
-                    break;
-                case "OCD3":
-                    this.checkEditOCD3.Checked = true;
-                    this.checkEditOCD3.ForeColor = Color.Red;
-                    break;
-                case "OCD4":
-                    this.checkEditOCD4.Checked = true;
-                    this.checkEditOCD4.ForeColor = Color.Red;
                     break;
                 case "OCD_SC":
                     this.checkEditOCD1_SC.Checked = true;

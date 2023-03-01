@@ -48,11 +48,8 @@ namespace IBMS_GUI
             this.label27 = new System.Windows.Forms.Label();
             this.labelBMSfault = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.checkEditOCD4 = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEditOCD3 = new DevExpress.XtraEditors.CheckEdit();
             this.checkEditOTP = new DevExpress.XtraEditors.CheckEdit();
             this.checkEditOCD1_SC = new DevExpress.XtraEditors.CheckEdit();
-            this.checkEditOCD2 = new DevExpress.XtraEditors.CheckEdit();
             this.checkEditUTB = new DevExpress.XtraEditors.CheckEdit();
             this.checkEditOTF = new DevExpress.XtraEditors.CheckEdit();
             this.checkEditOTB = new DevExpress.XtraEditors.CheckEdit();
@@ -152,11 +149,8 @@ namespace IBMS_GUI
             ((System.ComponentModel.ISupportInitialize)(this.toggleSwitchCHG.Properties)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditOCD4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditOCD3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditOTP.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditOCD1_SC.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditOCD2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditUTB.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditOTF.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditOTB.Properties)).BeginInit();
@@ -349,11 +343,8 @@ namespace IBMS_GUI
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.Control;
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.checkEditOCD4);
-            this.panel5.Controls.Add(this.checkEditOCD3);
             this.panel5.Controls.Add(this.checkEditOTP);
             this.panel5.Controls.Add(this.checkEditOCD1_SC);
-            this.panel5.Controls.Add(this.checkEditOCD2);
             this.panel5.Controls.Add(this.checkEditUTB);
             this.panel5.Controls.Add(this.checkEditOTF);
             this.panel5.Controls.Add(this.checkEditOTB);
@@ -364,30 +355,8 @@ namespace IBMS_GUI
             this.panel5.Location = new System.Drawing.Point(534, 253);
             this.panel5.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(348, 180);
+            this.panel5.Size = new System.Drawing.Size(348, 146);
             this.panel5.TabIndex = 18;
-            // 
-            // checkEditOCD4
-            // 
-            this.checkEditOCD4.Location = new System.Drawing.Point(14, 132);
-            this.checkEditOCD4.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.checkEditOCD4.Name = "checkEditOCD4";
-            this.checkEditOCD4.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkEditOCD4.Properties.Appearance.Options.UseFont = true;
-            this.checkEditOCD4.Properties.Caption = "OCD4";
-            this.checkEditOCD4.Size = new System.Drawing.Size(92, 28);
-            this.checkEditOCD4.TabIndex = 32;
-            // 
-            // checkEditOCD3
-            // 
-            this.checkEditOCD3.Location = new System.Drawing.Point(242, 102);
-            this.checkEditOCD3.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.checkEditOCD3.Name = "checkEditOCD3";
-            this.checkEditOCD3.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkEditOCD3.Properties.Appearance.Options.UseFont = true;
-            this.checkEditOCD3.Properties.Caption = "OCD3";
-            this.checkEditOCD3.Size = new System.Drawing.Size(92, 28);
-            this.checkEditOCD3.TabIndex = 31;
             // 
             // checkEditOTP
             // 
@@ -410,17 +379,6 @@ namespace IBMS_GUI
             this.checkEditOCD1_SC.Properties.Caption = "OCD1/SC";
             this.checkEditOCD1_SC.Size = new System.Drawing.Size(118, 28);
             this.checkEditOCD1_SC.TabIndex = 29;
-            // 
-            // checkEditOCD2
-            // 
-            this.checkEditOCD2.Location = new System.Drawing.Point(142, 102);
-            this.checkEditOCD2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
-            this.checkEditOCD2.Name = "checkEditOCD2";
-            this.checkEditOCD2.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkEditOCD2.Properties.Appearance.Options.UseFont = true;
-            this.checkEditOCD2.Properties.Caption = "OCD2";
-            this.checkEditOCD2.Size = new System.Drawing.Size(92, 28);
-            this.checkEditOCD2.TabIndex = 28;
             // 
             // checkEditUTB
             // 
@@ -484,7 +442,7 @@ namespace IBMS_GUI
             this.panel6.Controls.Add(this.label28);
             this.panel6.Controls.Add(this.toggleSwitchBal);
             this.panel6.Controls.Add(this.label30);
-            this.panel6.Location = new System.Drawing.Point(534, 446);
+            this.panel6.Location = new System.Drawing.Point(534, 417);
             this.panel6.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(348, 85);
@@ -1229,7 +1187,7 @@ namespace IBMS_GUI
             this.xtraTabPage4.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.xtraTabPage4.Name = "xtraTabPage4";
             this.xtraTabPage4.Size = new System.Drawing.Size(471, 394);
-            this.xtraTabPage4.Text = "Spare";
+            this.xtraTabPage4.Text = "Other";
             // 
             // tableLayoutPanel4
             // 
@@ -1411,7 +1369,7 @@ namespace IBMS_GUI
             this.label113.Name = "label113";
             this.label113.Size = new System.Drawing.Size(75, 24);
             this.label113.TabIndex = 18;
-            this.label113.Text = "Spare 2";
+            this.label113.Text = "Spare 1";
             // 
             // label114
             // 
@@ -1423,7 +1381,7 @@ namespace IBMS_GUI
             this.label114.Name = "label114";
             this.label114.Size = new System.Drawing.Size(75, 24);
             this.label114.TabIndex = 19;
-            this.label114.Text = "Spare 3";
+            this.label114.Text = "Spare 2";
             // 
             // label116
             // 
@@ -1435,7 +1393,7 @@ namespace IBMS_GUI
             this.label116.Name = "label116";
             this.label116.Size = new System.Drawing.Size(75, 24);
             this.label116.TabIndex = 21;
-            this.label116.Text = "Spare 5";
+            this.label116.Text = "Spare 4";
             // 
             // labelSpare7
             // 
@@ -1495,7 +1453,7 @@ namespace IBMS_GUI
             this.label115.Name = "label115";
             this.label115.Size = new System.Drawing.Size(75, 24);
             this.label115.TabIndex = 20;
-            this.label115.Text = "Spare 4";
+            this.label115.Text = "Spare 3";
             // 
             // label117
             // 
@@ -1507,7 +1465,7 @@ namespace IBMS_GUI
             this.label117.Name = "label117";
             this.label117.Size = new System.Drawing.Size(75, 24);
             this.label117.TabIndex = 22;
-            this.label117.Text = "Spare 6";
+            this.label117.Text = "Spare 5";
             // 
             // label16
             // 
@@ -1661,7 +1619,7 @@ namespace IBMS_GUI
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.checkEditCalibration);
             this.panel2.Controls.Add(this.label21);
-            this.panel2.Location = new System.Drawing.Point(534, 543);
+            this.panel2.Location = new System.Drawing.Point(534, 518);
             this.panel2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(348, 90);
@@ -1674,7 +1632,7 @@ namespace IBMS_GUI
             this.checkEditCalibration.Name = "checkEditCalibration";
             this.checkEditCalibration.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.1F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkEditCalibration.Properties.Appearance.Options.UseFont = true;
-            this.checkEditCalibration.Properties.Caption = "Not Calibrated";
+            this.checkEditCalibration.Properties.Caption = "Current Calibrated";
             this.checkEditCalibration.Size = new System.Drawing.Size(246, 28);
             this.checkEditCalibration.TabIndex = 24;
             // 
@@ -1719,11 +1677,8 @@ namespace IBMS_GUI
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditOCD4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditOCD3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditOTP.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditOCD1_SC.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkEditOCD2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditUTB.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditOTF.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.checkEditOTB.Properties)).EndInit();
@@ -1780,7 +1735,6 @@ namespace IBMS_GUI
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label30;
-        private DevExpress.XtraEditors.CheckEdit checkEditOCD2;
         private DevExpress.XtraEditors.CheckEdit checkEditUTB;
         private DevExpress.XtraEditors.CheckEdit checkEditOTF;
         private DevExpress.XtraEditors.CheckEdit checkEditOTB;
@@ -1878,7 +1832,5 @@ namespace IBMS_GUI
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Panel panel2;
         private DevExpress.XtraEditors.CheckEdit checkEditCalibration;
-        private DevExpress.XtraEditors.CheckEdit checkEditOCD4;
-        private DevExpress.XtraEditors.CheckEdit checkEditOCD3;
     }
 }
