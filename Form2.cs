@@ -57,6 +57,7 @@ namespace IBMS_GUI
         private bool ProductionButtonSetected = true;
         private bool CalibrationButtonSetected = false;
 
+
         // Over Voltage and Under Voltage threshold
         private float OV_Threshold = 3.9f;
         private float UV_Threshold = 2f;
@@ -83,6 +84,8 @@ namespace IBMS_GUI
         private DateTime previousDateTime = DateTime.Now;
         private DateTime currentDateTime = DateTime.Now;
 
+     
+
 
 
         public Form2()
@@ -98,11 +101,13 @@ namespace IBMS_GUI
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
+            
             if (XtraMessageBox.Show("Is Recording Data off? Please stop recording to save all data to excel", "NLX NOCO",
                     MessageBoxButtons.YesNo) == DialogResult.No)
             {
                 e.Cancel = true;
             }
+            this.serialPort1.Write("P");
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -213,8 +218,8 @@ namespace IBMS_GUI
                     this.serialPort1.PortName = this.comboBox1.Text;
                     this.serialPort1.DataReceived += SerialPort1_DataReceived;
                     this.serialPort1.Open();
-                    this.buttonConnect.Text = "Connected";
 
+                    this.buttonConnect.Text = "Connected";
                     this.buttonDebug.Enabled = true;
                     this.buttonProduction.Enabled = true;
                 }
@@ -266,8 +271,11 @@ namespace IBMS_GUI
         {
             if (this.serialPort1.IsOpen)
             {
+                this.serialPort1.Write("P");
+                this.serialPort1.DataReceived -= SerialPort1_DataReceived; // don't enter to the DataReceived event if the port is disconnected
                 this.serialPort1.Close();
                 ClearForm();
+
                 this.buttonConnect.Text = "Connect";
                 this.buttonCalibration.Enabled = false;
                 this.buttonProduction.Enabled = false;
@@ -324,6 +332,7 @@ namespace IBMS_GUI
 
             int[] dataCompleted = new int[DataLengthwithSpares];
 
+            
             if (DebugButtonSetected)
             {
                 while (serialPort1.BytesToRead > 0)                                   // waits here if there are bytes to read
@@ -340,7 +349,7 @@ namespace IBMS_GUI
                     GetBatteryData(dataCompleted);
                 }
                 setBMSFaults(UARTFault);
-                _context.Post(UpdateBatteryStatus(), null);
+               
             }
 
             if (CalibrationButtonSetected)
@@ -365,8 +374,10 @@ namespace IBMS_GUI
                     }
 
                 }
-            }    
-         }
+            }
+            
+            _context.Post(UpdateBatteryStatus(), null);
+        }
         private int ConvertBytesDataRxToInt(int dataMSB, int dataLSB)
         {
             var MSB = Convert.ToInt16(dataMSB) << 8;
@@ -443,6 +454,11 @@ namespace IBMS_GUI
             ChgCurrent = ConvertBytesDataRxToFloat(DataRX[19], DataRX[18], 0.1).ToString();
 
             Cell1Volt = ConvertBytesDataRxToFloat(DataRX[21], DataRX[20], 0.001).ToString();
+            if(Cell1Volt == "0")
+            {
+                var test = 1;
+            }
+
             Cell2Volt = ConvertBytesDataRxToFloat(DataRX[23], DataRX[22], 0.001).ToString();
             Cell3Volt = ConvertBytesDataRxToFloat(DataRX[25], DataRX[24], 0.001).ToString();
             Cell4Volt = ConvertBytesDataRxToFloat(DataRX[27], DataRX[26], 0.001).ToString();
@@ -570,6 +586,12 @@ namespace IBMS_GUI
         {
             return status =>
             {
+
+                if(Cell2Volt == "0")
+                {
+                    var test = 1;
+                    return;
+                }
                 this.labelBattID.Text = BattID;
                 this.labelCell1V.Text = Cell1Volt;
                 this.labelCell2V.Text = Cell2Volt;
